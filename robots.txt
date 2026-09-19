@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.poolueberdachung-empfehlung.de/sitemap.xml
