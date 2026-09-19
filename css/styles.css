@@ -229,11 +229,14 @@ button:focus-visible,
   border-radius: var(--radius-sm);
   width: 44px;
   height: 44px;
+  padding: 0;
   align-items: center;
   justify-content: center;
   color: #fff;
   cursor: pointer;
+  flex-shrink: 0;
 }
+.nav-toggle svg { width: 22px; height: 22px; flex-shrink: 0; }
 
 @media (max-width: 860px) {
   .nav-links { display: none; }
