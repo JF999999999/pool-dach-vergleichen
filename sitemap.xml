@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.poolueberdachung-empfehlung.de/</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/hero-villa-aerial.jpg</image:loc>
+      <image:title>Poolüberdachung Vergleich – Hero-Ansicht</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/galerie-hecke-garten.jpg</image:loc>
+      <image:title>Limone Glass Panorama – flache Poolüberdachung</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/galerie-feld-blick.jpg</image:loc>
+      <image:title>Limone Slim PC – geschlossene Poolüberdachung</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/galerie-solar-lounge.jpg</image:loc>
+      <image:title>Monza – halbhohe, begehbare Poolüberdachung</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/flach-person-oeffnet.jpg</image:loc>
+      <image:title>Schienenlose Poolüberdachung – Bedienung durch eine Person</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/flach-garten.jpg</image:loc>
+      <image:title>Flache Poolüberdachung im Garten</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/glastuer-detail.jpg</image:loc>
+      <image:title>Echtglas-Tür einer Poolüberdachung</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.poolueberdachung-empfehlung.de/images/poolhaus-lounge.jpg</image:loc>
+      <image:title>Lounge-Bereich einer Poolüberdachung</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.poolueberdachung-empfehlung.de/impressum.html</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://www.poolueberdachung-empfehlung.de/datenschutz.html</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
