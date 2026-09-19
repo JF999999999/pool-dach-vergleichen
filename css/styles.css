@@ -326,14 +326,14 @@ button:focus-visible,
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-5);
+  overflow: hidden;
+  box-shadow: var(--shadow-glow);
 }
-.hero-visual svg { width: 100%; height: 100%; }
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
@@ -512,11 +512,54 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
   .model-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- Gallery ---------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+.gallery-item {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+.gallery-item .gallery-media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-item figcaption {
+  padding: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-muted-foreground);
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Press / recognition ---------- */
 .press-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-4);
+}
+@media (max-width: 1024px) {
+  .press-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .press-grid { grid-template-columns: 1fr; }
 }
 .press-card {
   padding: var(--space-4);
@@ -540,10 +583,6 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
 }
 .press-card a:hover { text-decoration: underline; }
 .press-card a svg { width: 16px; height: 16px; }
-
-@media (max-width: 900px) {
-  .press-grid { grid-template-columns: 1fr; }
-}
 
 /* ---------- Final CTA ---------- */
 .cta-band {
