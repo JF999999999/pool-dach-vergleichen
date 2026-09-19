@@ -241,16 +241,25 @@ button:focus-visible,
   .nav.is-open .nav-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
+    align-items: stretch;
+    gap: 0;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(28,25,23,0.97);
-    padding: var(--space-4);
+    background: #1C1917;
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+  }
+  .nav.is-open .nav-links a {
+    padding: var(--space-3) 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+  .nav.is-open .nav-links li:last-child a { border-bottom: none; }
 }
 
 /* ---------- Hero ---------- */
@@ -340,8 +349,24 @@ button:focus-visible,
   .hero-visual { max-width: 420px; margin: 0 auto; }
 }
 
+@media (max-width: 600px) {
+  .hero { padding: var(--space-7) 0 var(--space-6); }
+  .hero-actions { flex-direction: column; margin-bottom: var(--space-5); }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .hero-stat strong { font-size: 1.4rem; }
+  .hero-stat span { font-size: 0.72rem; }
+}
+
 /* ---------- Sections ---------- */
 section { padding: var(--space-8) 0; }
+@media (max-width: 600px) {
+  section { padding: var(--space-6) 0; }
+}
 .section-head {
   max-width: 640px;
   margin: 0 auto var(--space-6);
@@ -449,8 +474,56 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
 .check-partial { color: var(--color-accent); font-weight: 600; }
 .check-no { color: var(--color-muted-foreground); }
 
-@media (max-width: 760px) {
-  .compare-table { min-width: 640px; }
+/* Below 700px the table becomes a stack of label/value cards per row,
+   so the highlighted Paradiso column is always visible without
+   horizontal scrolling (which used to hide it off-screen). */
+@media (max-width: 700px) {
+  .compare-scroll { overflow-x: visible; }
+  .compare-table { min-width: 0; box-shadow: none; background: transparent; border-spacing: 0 var(--space-4); border-collapse: separate; }
+  .compare-table thead { display: none; }
+  .compare-table tbody { display: block; }
+  .compare-table tr {
+    display: block;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+  }
+  .compare-table tr:last-child { margin-bottom: 0; }
+  .compare-table tbody th[scope="row"] {
+    display: block;
+    background: var(--color-muted);
+    padding: var(--space-3) var(--space-4);
+    font-size: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .compare-table td {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-2) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .compare-table tr td:last-of-type { border-bottom: none; }
+  .compare-table td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-muted-foreground);
+    max-width: 42%;
+  }
+  .compare-table td.col-highlight {
+    border-left: none;
+    border-right: none;
+    border-top: 2px solid var(--color-accent);
+  }
+  .compare-table td.col-highlight::before { color: var(--color-accent); }
 }
 
 /* ---------- USP / advantage cards ---------- */
@@ -543,12 +616,12 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
   font-size: 0.85rem;
   color: var(--color-muted-foreground);
 }
+@media (max-width: 1024px) {
+  .gallery-item figcaption { padding: var(--space-2); font-size: 0.78rem; line-height: 1.35; }
+}
 
 @media (max-width: 1024px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
 }
 
 /* ---------- Press / recognition ---------- */
@@ -598,7 +671,7 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-4);
+  padding: 0 var(--space-4);
   box-shadow: var(--shadow-card);
 }
 .faq-item summary {
@@ -612,6 +685,8 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-3) 0;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
@@ -623,7 +698,7 @@ html.js-observed .reveal.is-visible { opacity: 1; transform: none; }
   transition: transform var(--duration-base) var(--ease-out);
 }
 .faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-item p { margin: var(--space-3) 0 0; font-size: 0.95rem; }
+.faq-item p { margin: 0; padding-bottom: var(--space-4); font-size: 0.95rem; }
 
 /* ---------- Final CTA ---------- */
 .cta-band {
